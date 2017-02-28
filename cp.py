@@ -17,20 +17,17 @@ row = 1
 col = 1
 point = 1
 
+
 def sortlistdir(dirnamepath):
+	files = glob.glob(dirnamepath)	
 	a = []
-	files = glob.glob(dirnamepath)
-	for item in files:
-	    temp = int(re.search(r'\d+',item).group())
-	    a.append(temp)
-	a.sort()	
-	b = []
-	for item in a:
-		b.append(dirnamepath[:-5] + str(item) + ".txt")
-	return b
+	for item in range(1,len(files)+1):
+		a.append(dirnamepath[:-5] + str(item) + ".txt")
+	#print(a)
+	return a
 
 
-path = sortlistdir('/Users/Qian/Desktop/wifidata/V_Eight/*.txt')
+path = sortlistdir('/Users/Qian/Desktop/wifidata/V_Four/*.txt')
 
 for txtfile in path:
 	h = open(txtfile,'r')
