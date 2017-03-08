@@ -23,6 +23,7 @@ k = 1
  
 for txtfile in files:
     f = open(txtfile,'r')
+    g = open(txtfile,'w')
     namelist = []
     all_lines = f.read()
     content = sorted(all_lines.split("\n"))

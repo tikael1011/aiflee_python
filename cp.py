@@ -34,7 +34,7 @@ for txtfile in path:
 	h_txt = h.read()
 	info = sorted(h_txt.split("\n"))
 	#g = open(txtfile,'w')
-	worksheet.write(row,1,point)
+	#worksheet.write(row,1,point)
 	for line in info:
 		if(line == ''): continue
 		if(line != '****####****'):
