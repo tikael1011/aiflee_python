@@ -30,7 +30,7 @@ def sortlistdir(dirnamepath):
 ####Creat List from Txt File and Record Time####
 t = time()
  
-path = sortlistdir('/Users/Qian/Desktop/wifidata/H_Eight/*.txt')
+path = sortlistdir('/Users/Qian/Desktop/wifidata/V_Two/*.txt')
 
 method = 1 
 
@@ -40,7 +40,7 @@ h = open("avg.txt", 'w+')
 
 for txtfile in path:
     f = open(txtfile, 'r')
-    g = open('/Users/Qian/Desktop/wifidata/AVG/H8/' + str(j) + '.txt', 'w+')
+    g = open('/Users/Qian/Desktop/wifidata/AVG/V2/' + str(j) + '.txt', 'w+')
     #print(f)
     all_lines = f.read()
     content = sorted(all_lines.split("\n"))
@@ -91,7 +91,7 @@ row = 1
 col = 1
 point = 1
 
-path2 = sortlistdir('/Users/Qian/Desktop/wifidata/AVG/H8/*.txt')
+path2 = sortlistdir('/Users/Qian/Desktop/wifidata/AVG/V2/*.txt')
 #print(path2)
 
 for txtfile in path2:
