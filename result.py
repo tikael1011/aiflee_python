@@ -19,7 +19,7 @@ for element in all_input:
 		jdata = base.split(',')
 		jname = jdata[0]
 		jvalue = float(jdata[1])
-		if (iname == jname and (jvalue-2 <= ivalue and ivalue-2 <= jvalue )):
+		if (iname == jname and (jvalue-3 <= ivalue and ivalue-3 <= jvalue )):
 			cad.append(jdata[2])
 
 result = [loc for loc, count in Counter(cad).most_common(1)]
