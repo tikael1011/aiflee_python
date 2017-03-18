@@ -15,6 +15,7 @@ for element in all_input:
 	idata = element.split(' ')
 	iname = idata[0]
 	ivalue = float(idata[1])
+	if (ivalue <= -85): continue
 	for base in all_data:
 		jdata = base.split(',')
 		jname = jdata[0]
