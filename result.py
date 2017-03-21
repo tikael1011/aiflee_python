@@ -1,33 +1,64 @@
-import re
+import os
+import os.path
 from collections import Counter
 from time import time
+from glob import glob
 
-t = time()
+#### PASS ####
+# for dirpath, dirnames, filenames in os.walk("."):
+#     for filename in [f for f in filenames if f.endswith(".txt")]:
+#         print os.path.join(dirpath, filename)
+#### PASS ####
 
-file_open = open('name.txt','r')
-input_open = open('demo.txt','r')
-all_data = [x.strip() for x in file_open.readlines()]
-all_input = [x.strip() for x in input_open.readlines()]
+flag = True
 
-cad = []
+while(flag):
+	while(1):
 
-i = 0
+		hallwayname = input("Input hallwayname or Type exit to exit: ")
 
-for element in all_input:
-	if (i >= 20): break
-	idata = element.split(',')
-	iname = idata[0]
-	ivalue = float(idata[1])
-	if (ivalue <= -85.0):
-		continue
-	i = i+ 1
-	for base in all_data:
-		jdata = base.split(',')
-		jname = jdata[0]
-		jvalue = float(jdata[1])
-		if (iname == jname and (jvalue-2 <= ivalue and ivalue-2 <= jvalue )):
-			cad.append(jdata[2])
+		if(hallwayname == 'exit'):
+			flag = False
+			break
+		locationname = input("Input datalocation: ")
 
-result = [loc for loc, count in Counter(cad).most_common(1)]
-print(result)
-print(time()-t)
+		file_open = open('data_filtered.txt','r')
+
+		try:
+			input_open = open('/Users/Qian/Desktop/wifidata/AVG/'+hallwayname +'/'+locationname+".txt",'r')
+		except:
+			print("point does not exist, please try again")
+			break
+
+		t = time()
+
+		all_data = [x.strip() for x in file_open.readlines()]
+		all_input = [x.strip() for x in input_open.readlines()]
+
+		cad = []
+
+		i = 0
+
+		for element in all_input:
+			if (i >= 20): break
+			idata = element.split(' ')
+			iname = idata[0]
+			ivalue = float(idata[1])
+			if (ivalue <= -85.0):
+				continue
+			i = i+ 1
+			for base in all_data:
+				jdata = base.split(',')
+				jname = jdata[0]
+				jvalue = float(jdata[1])
+				if (iname == jname and (jvalue-2 <= ivalue and ivalue-2 <= jvalue )):
+					cad.append(jdata[2])
+
+		result = [loc for loc, count in Counter(cad).most_common(1)]
+		print("Based on the data you input, you are at {}".format(result))
+		print(time()-t)
+
+####****
+# if __name__ == '__main__':
+# 	main()
+####****
