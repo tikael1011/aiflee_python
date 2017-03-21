@@ -11,9 +11,11 @@ all_input = [x.strip() for x in input_open.readlines()]
 
 cad = []
 
+i = 0
+
 for element in all_input:
 	if (i >= 20): break
-	idata = element.split(' ')
+	idata = element.split(',')
 	iname = idata[0]
 	ivalue = float(idata[1])
 	if (ivalue <= -85.0):
