@@ -1,4 +1,3 @@
-
 #UTF-8 Jie
 
 import os
@@ -80,8 +79,8 @@ for txtfile in path:
 	startindex = find_nth(txtfile, '/', 6)
 	point = int((' '.join(result)).split('.')[1])
 	#print(point)
-	print("Cal" + " " + txtfile)	
-	if(point >= int(txtfile[startindex+1:-4]) - int(threshold) or point <= int(txtfile[startindex+1:-4])+ int(threshold)):
+	print("Cal" + " " + txtfile + " " + ' '.join(result))	
+	if(point >= int(txtfile[startindex+1:-4]) - int(threshold) and point <= int(txtfile[startindex+1:-4]) + int(threshold)):
 		rt = rt + 1
 	total = total + 1
 	input_open.close()
@@ -91,6 +90,10 @@ print(total)
 print(rt)
 print(rt/total)
 
+
+#776 total, 677rt, 0.8724226804123711 with threshold 3
+#665rt, 0.8569587628865979 with threshold 2
+#687rt, 0.8853092783505154 with threshold 4
 
 #file_open = open('data_filtered.txt','r')
 #input_open = open('demo.txt','r')
