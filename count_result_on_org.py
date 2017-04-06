@@ -94,6 +94,10 @@ print(rt/total)
 #776 total, 677rt, 0.8724226804123711 with threshold 3
 #665rt, 0.8569587628865979 with threshold 2
 #687rt, 0.8853092783505154 with threshold 4
+#623, with th1
+#514, with th0
+
+#inner thres from 0~3
 
 #file_open = open('data_filtered.txt','r')
 #input_open = open('demo.txt','r')
