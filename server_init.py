@@ -20,9 +20,7 @@ while(1):
 	input_path = glob.glob('*.txt')
 
 	all_data = [x.strip() for x in file_open.readlines()]
-
-
-
+	
 	for files in input_path:
 		cad = []
 		i = 0
@@ -55,6 +53,6 @@ while(1):
 					o = open('/home/student/location/'+files,'a')
 					o.write(name[1] + ',' + name[2])
 				f.close()
-		o.close()
+				o.close()
 	file_open.close
 	time.sleep(0.1)
