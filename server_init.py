@@ -13,7 +13,7 @@ class server_init(threading.Thread):
 
 '''
 crd = open('/home/student/hallway_cod.txt','r')
-crd_base = crd.readlines()
+crd_base = [x.strip() for x in crd.readlines()]
 
 while(1):
 	file_open = open('/home/student/data_filtered.txt','r')
@@ -44,7 +44,9 @@ while(1):
 		result = [loc for loc, count in Counter(cad).most_common(1)]
 
 		for ref in crd_base:
-			name = ref.split(" ")
+			name = ref.split(',')
+			# print(result[0])
+			# print(name[0])
 			if (name[0] == result[0]):				
 				try:
 					o = open('/home/student/location/'+files,'w')
@@ -54,5 +56,7 @@ while(1):
 					o.write(name[1] + ',' + name[2])
 				f.close()
 				o.close()
+			# else:
+			# 	print("why not equal")
 	file_open.close
 	time.sleep(0.1)
