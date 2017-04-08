@@ -44,13 +44,17 @@ while(1):
 					cad.append(jdata[2])
 
 		result = [loc for loc, count in Counter(cad).most_common(1)]
-		try:
-			o = open('/home/student/location/'+files,'w')
-			o.write(result[0])
-		except:
-			o = open('/home/student/location/'+files,'a')
-			o.write(result[0])
-		f.close()
+
+		for ref in crd_base:
+			name = ref.split(" ")
+			if (name[0] == result[0]):				
+				try:
+					o = open('/home/student/location/'+files,'w')
+					o.write(name[1] + ',' + name[2])
+				except:
+					o = open('/home/student/location/'+files,'a')
+					o.write(name[1] + ',' + name[2])
+				f.close()
 		o.close()
 	file_open.close
 	time.sleep(0.1)
