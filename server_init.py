@@ -2,7 +2,7 @@ import os
 import os.path
 from collections import Counter
 import glob
-import threading
+#import threading
 import time
 
 '''
@@ -12,6 +12,9 @@ class server_init(threading.Thread):
 	def run(self):
 
 '''
+crd = open('/home/student/hallway_cod.txt','r')
+crd_base = crd.readlines()
+
 while(1):
 	file_open = open('/home/student/data_filtered.txt','r')
 	input_path = glob.glob('*.txt')
