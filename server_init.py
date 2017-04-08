@@ -13,16 +13,14 @@ class server_init(threading.Thread):
 
 '''
 crd = open('/home/student/hallway_cod.txt','r')
-crd_base = crd.readlines()
+crd_base = [x.strip() for x in crd.readlines()]
 
 while(1):
 	file_open = open('/home/student/data_filtered.txt','r')
 	input_path = glob.glob('*.txt')
 
 	all_data = [x.strip() for x in file_open.readlines()]
-
-
-
+	
 	for files in input_path:
 		cad = []
 		i = 0
@@ -44,13 +42,21 @@ while(1):
 					cad.append(jdata[2])
 
 		result = [loc for loc, count in Counter(cad).most_common(1)]
-		try:
-			o = open('/home/student/location/'+files,'w')
-			o.write(result[0])
-		except:
-			o = open('/home/student/location/'+files,'a')
-			o.write(result[0])
-		f.close()
-		o.close()
+
+		for ref in crd_base:
+			name = ref.split(',')
+			# print(result[0])
+			# print(name[0])
+			if (name[0] == result[0]):				
+				try:
+					o = open('/home/student/location/'+files,'w')
+					o.write(name[1] + ',' + name[2])
+				except:
+					o = open('/home/student/location/'+files,'a')
+					o.write(name[1] + ',' + name[2])
+				f.close()
+				o.close()
+			# else:
+			# 	print("why not equal")
 	file_open.close
 	time.sleep(0.1)
