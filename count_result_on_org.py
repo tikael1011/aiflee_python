@@ -36,6 +36,8 @@ def list_files(dir):
         		r.append(os.path.join(root, name))
     return r
 
+t = time()
+
 
 rootdir = '/Users/Qian/Desktop/wifidata'
 
@@ -72,7 +74,7 @@ for txtfile in path:
 			jdata = base.split(',')
 			jname = jdata[0]
 			jvalue = float(jdata[1])
-			if (iname == jname and (jvalue-3 <= ivalue and ivalue-3 <= jvalue )):
+			if (iname == jname and (jvalue - 3 <= ivalue and ivalue - 3 <= jvalue )):
 				cad.append(jdata[2])
 
 	result = [loc for loc, count in Counter(cad).most_common(1)]
@@ -89,6 +91,7 @@ for txtfile in path:
 print(total)
 print(rt)
 print(rt/total)
+print(time()-t)
 
 
 #776 total, 677rt, 0.8724226804123711 with threshold 3

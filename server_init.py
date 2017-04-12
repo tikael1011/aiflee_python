@@ -58,5 +58,5 @@ while(1):
 				o.close()
 			# else:
 			# 	print("why not equal")
-	file_open.close
-	time.sleep(0.1)
+	file_open.close()
+	time.sleep(5)
