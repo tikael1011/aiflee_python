@@ -139,8 +139,6 @@ while(n_steps > 1):
 			input_open.close()
 		except:
 			continue
-		print(rt)
-		print(total)
 	n_steps = n_steps-1
 
 
