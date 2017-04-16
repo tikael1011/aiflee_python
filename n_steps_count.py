@@ -41,9 +41,10 @@ t = time()
 
 rootdir = '/Users/Qian/Desktop/wifidata'
 
-# threshold = input("Input threshold: ")
+innerthreshold = input("Input innerthreshold: ")
+outterthreshold = input("Input outerthreshold: ")
 
-# n_steps = input("Input how many steps: ")
+n_steps = int(input("Input how many steps: "))
 
 dic = []
 
@@ -52,17 +53,19 @@ file_open = open('data_filtered.txt','r')
 all_data = [x.strip() for x in file_open.readlines()]
 path = list_files(rootdir)
 
-print(type(path))
-print(path)
+# print(type(path))
+# print(path)
 
-'''
-while(n_steps > 0):
+
+while(n_steps > 1):
 
 	rt = 0
 	total = 0
 
 	for txtfile in path:
+		startindex = find_nth(txtfile, '/', 6)
 		input_open = open(txtfile,'r')
+
 		all_input = [x.strip() for x in input_open.readlines()]
 		cad = []
 		i = 0
@@ -82,19 +85,62 @@ while(n_steps > 0):
 				jdata = base.split(',')
 				jname = jdata[0]
 				jvalue = float(jdata[1])
-				if (iname == jname and (jvalue - 3 <= ivalue and ivalue - 3 <= jvalue )):
+				if (iname == jname and (jvalue - float(innerthreshold) <= ivalue and ivalue - float(innerthreshold) <= jvalue )):
 					cad.append(jdata[2])
 
-		result = [loc for loc, count in Counter(cad).most_common(1)]
-		startindex = find_nth(txtfile, '/', 6)
-		point = int((' '.join(result)).split('.')[1])
-		#print(point)
-		print("Cal" + " " + txtfile + " " + ' '.join(result))	
-		if(point >= int(txtfile[startindex+1:-4]) - int(threshold) and point <= int(txtfile[startindex+1:-4]) + int(threshold)):
-			rt = rt + 1
-		total = total + 1
-		input_open.close()
+		# result = [loc for loc, count in Counter(cad).most_common(3)]
 
+		# point = int((' '.join(result)).split('.')[1])
+		#print(point)
+		#print("Cal" + " " + txtfile + " " + ' '.join(result))	
+		# if(point >= int(txtfile[startindex+1:-4]) - int(outterthreshold) and point <= int(txtfile[startindex+1:-4]) \
+		# 	+ int(outterthreshold)):
+		# 	rt = rt + 1
+		# total = total + 1
+		# input_open.close()
+
+		try:
+			input_2 = open((txtfile[:startindex+1]+str(int(txtfile[startindex+1:-4]) + 1))+'.txt')
+			all_input_2 = [x.strip() for x in input_open.readlines()]
+			cad_2 = []
+			j = 0
+			for element_2 in all_input_2:
+				if(element_2 == ""): continue
+				if(element_2 == '****####****'): break
+				if (j >= 20): break
+				idata_2 = element_2.split()
+				#print(idata)
+				
+				iname_2 = idata_2[0]
+				ivalue_2 = int(idata_2[3]) # was 1 for the training data and float cast
+				if (ivalue_2 <= -85.0):
+					continue
+				j = j + 1
+				for base_2 in all_data_2:
+					jdata_2 = base_2.split(',')
+					jname_2 = jdata_2[0]
+					jvalue_2 = float(jdata_2[1])
+					if (iname_2 == jname_2 and (jvalue_2 - float(innerthreshold) <= ivalue_2 and ivalue_2 - float(innerthreshold) <= jvalue )):
+						cad_2.append(jdata_2[2])
+
+			for x in cad:
+				cad_2.append(x)
+			result = [loc for loc, count in Counter(cad_2).most_common(1)]
+
+			point = int((' '.join(result)).split('.')[1])
+			#print(point)
+			print("Cal" + " " + txtfile[find_nth(txtfile, '/', 5) + 1:find_nth(txtfile, '/', 6)] + \
+				"." + txtfile[find_nth(txtfile, '/', 6) + 1:-4] + "&&" + str(int(txtfile[startindex+1:-4]) + 1) + \
+				" " + ' '.join(result))	
+			if(point >= int(txtfile[startindex+1:-4]) - int(outterthreshold) and point <= int(txtfile[startindex+1:-4]) \
+				+ int(outterthreshold) + 1):
+				rt = rt + 1
+			total = total + 1
+			input_open.close()
+		except:
+			continue
+		print(rt)
+		print(total)
 	n_steps = n_steps-1
 
 
@@ -102,4 +148,4 @@ print(total)
 print(rt)
 print(rt/total)
 print(time()-t)
-'''
+
