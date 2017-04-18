@@ -1,0 +1,45 @@
+use python3 -m cProfile  -s cumulative n_steps_count.py
+will get the (similar) following results.
+
+  ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+   1137/1    0.055    0.000  417.508  417.508 {built-in method builtins.exec}
+        1  280.667  280.667  417.508  417.508 n_steps_count.py:4(<module>)
+486372848  117.235    0.000  117.235    0.000 {method 'split' of 'str' objects}
+        2   12.452    6.226   12.452    6.226 {built-in method builtins.input}
+     1536    4.364    0.003    4.405    0.003 {method 'readlines' of '_io._IOBase' objects}
+       75    0.001    0.000    2.936    0.039 __init__.py:1(<module>)
+   1208/5    0.011    0.000    2.138    0.428 <frozen importlib._bootstrap>:966(_find_and_load)
+   1208/5    0.008    0.000    2.138    0.428 <frozen importlib._bootstrap>:939(_find_and_load_unlocked)
+    967/6    0.008    0.000    2.137    0.356 <frozen importlib._bootstrap>:659(_load_unlocked)
+    843/6    0.005    0.000    2.136    0.356 <frozen importlib._bootstrap_external>:659(exec_module)
+   1361/6    0.002    0.000    2.130    0.355 <frozen importlib._bootstrap>:214(_call_with_frames_removed)
+   583/31    0.002    0.000    1.847    0.060 {built-in method builtins.__import__}
+4412/1450    0.018    0.000    1.515    0.001 <frozen importlib._bootstrap>:996(_handle_fromlist)
+        1    0.000    0.000    1.185    1.185 tools.py:3(<module>)
+  962/836    0.003    0.000    0.802    0.001 <frozen importlib._bootstrap>:570(module_from_spec)
+   114/82    0.001    0.000    0.768    0.009 <frozen importlib._bootstrap_external>:903(create_module)
+   114/82    0.636    0.006    0.767    0.009 {built-in method _imp.create_dynamic}
+      843    0.014    0.000    0.624    0.001 <frozen importlib._bootstrap_external>:729(get_code)
+        5    0.000    0.000    0.583    0.117 __init__.py:3(<module>)
+       18    0.000    0.000    0.534    0.030 data.py:1(<module>)
+        4    0.000    0.000    0.533    0.133 utils.py:1(<module>)
+        3    0.000    0.000    0.531    0.177 __init__.py:5(<module>)
+        8    0.000    0.000    0.491    0.061 api.py:1(<module>)
+      843    0.089    0.000    0.413    0.000 <frozen importlib._bootstrap_external>:816(get_data)
+      843    0.324    0.000    0.324    0.000 {method 'read' of '_io.FileIO' objects}
+        1    0.000    0.000    0.303    0.303 __init__.py:106(<module>)
+      776    0.174    0.000    0.287    0.000 n_steps_count.py:71(<listcomp>)
+        1    0.000    0.000    0.267    0.267 pyplot.py:17(<module>)
+        1    0.000    0.000    0.258    0.258 empirical_distribution.py:3(<module>)
+        1    0.000    0.000    0.257    0.257 __init__.py:157(<module>)
+        1    0.000    0.000    0.255    0.255 add_newdocs.py:10(<module>)
+        1    0.000    0.000    0.252    0.252 interpolate.py:2(<module>)
+        1    0.000    0.000    0.216    0.216 type_check.py:3(<module>)
+        1    0.000    0.000    0.204    0.204 __init__.py:632(<module>)
+        1    0.000    0.000    0.201    0.201 api.py:5(<module>)
+        
+        .......
+        
+        Just to many string calls
+        
+        trying to fix it.
