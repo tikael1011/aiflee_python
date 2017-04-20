@@ -44,8 +44,7 @@ rootdir = '/Users/Qian/Desktop/wifidata'
 innerthreshold = input("Input innerthreshold: ")
 outterthreshold = input("Input outerthreshold: ")
 
-n_steps = int(input("Input how many steps: "))
-
+n_steps = 2
 dic = []
 
 
