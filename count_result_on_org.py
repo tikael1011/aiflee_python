@@ -80,7 +80,7 @@ for txtfile in path:
 	result = [loc for loc, count in Counter(cad).most_common(1)]
 	startindex = find_nth(txtfile, '/', 6)
 	point = int((' '.join(result)).split('.')[1])
-	#print(point)
+
 	print("Cal" + " " + txtfile + " " + ' '.join(result))	
 	if(point >= int(txtfile[startindex+1:-4]) - int(threshold) and point <= int(txtfile[startindex+1:-4]) + int(threshold)):
 		rt = rt + 1
