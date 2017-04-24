@@ -2,7 +2,32 @@
 the purpose of this python script is to take advantage of continous inputs
 and get a overall high ranking
 first test version is base on n_steps and apply a filter to it.
+
 '''
+
+'''
+the point is to take advantage of the N input points are connective
+so that we maybe able to rule out unwanted candidate, but the problem is
+the final results may not be improved by this.
+
+'''
+
+'''
+the other concern is that if one point is 'strong'/ solid then it can replace other
+weak candidate, it is kinda like the correction algorithm.
+'''
+'''
+how do we define strong ? there are 20 aps being used to calculate the location
+(20 can be modified, and it is the max number of ap we used, does not necessarily
+to be 20) If a majority of (say 10? 12 maybe?) points output the same location,
+then we can say it is strong and it is strong enough the 'override' the other weak points
+and we can also use the overall score to determine what is the final output.
+'''
+
+'''
+
+'''
+
 
 #UTF-8 Jie
 
@@ -49,14 +74,12 @@ rootdir = '/Users/Qian/Desktop/wifidata'
 innerthreshold = input("Input innerthreshold: ")
 outterthreshold = input("Input outerthreshold: ")
 
-<<<<<<< Updated upstream
-n_steps = 2
-=======
+
 #n_steps = int(input("Input how many steps: "))
 
 n_steps = 2
 
->>>>>>> Stashed changes
+
 dic = []
 
 
@@ -133,6 +156,18 @@ while(n_steps > 1):
 					jvalue_2 = float(jdata_2[1])
 					if (iname_2 == jname_2 and (jvalue_2 - float(innerthreshold) <= ivalue_2 and ivalue_2 - float(innerthreshold) <= jvalue )):
 						cad_2.append(jdata_2[2])
+
+			
+
+
+			tmp = []
+			set_cad = set(cad)
+			for ele in set_cad:
+				tmp.append(ele.split('.')[1])
+
+			for index in range(len(tmp)-2):
+				if (abs(int(tmp[index]) - int(tmp[index+1])):
+
 
 			for x in cad:
 				cad_2.append(x)
