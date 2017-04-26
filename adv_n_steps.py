@@ -161,13 +161,14 @@ while(n_steps > 1):
 
 
 			tmp = []
+			act = []
 			set_cad = set(cad)
 			for ele in set_cad:
 				tmp.append(ele.split('.')[1])
 
 			for index in range(len(tmp)-2):
-				if (abs(int(tmp[index]) - int(tmp[index+1])):
-
+				if (abs(int(tmp[index]) - int(tmp[index+1])<=2):
+					act.append(tmp[i])
 
 			for x in cad:
 				cad_2.append(x)

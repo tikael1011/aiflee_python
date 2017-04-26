@@ -44,14 +44,12 @@ rootdir = '/Users/Qian/Desktop/wifidata'
 innerthreshold = input("Input innerthreshold: ")
 outterthreshold = input("Input outerthreshold: ")
 
-<<<<<<< Updated upstream
-n_steps = 2
-=======
+
 #n_steps = int(input("Input how many steps: "))
 
 n_steps = 2
 
->>>>>>> Stashed changes
+err = []
 dic = []
 
 
@@ -132,6 +130,7 @@ while(n_steps > 1):
 			for x in cad:
 				cad_2.append(x)
 			result = [loc for loc, count in Counter(cad_2).most_common(1)]
+			rpt = [loc for loc, count in Counter(cad_2).most_common(3)]
 
 			point = int((' '.join(result)).split('.')[1])
 			#print(point)
@@ -141,6 +140,8 @@ while(n_steps > 1):
 			if(point >= int(txtfile[startindex+1:-4]) - int(outterthreshold) and point <= int(txtfile[startindex+1:-4]) \
 				+ int(outterthreshold) + 1):
 				rt = rt + 1
+			else:
+				err.append(txtfile + "..." + ''.join(rpt))
 			total = total + 1
 			input_open.close()
 		except:
@@ -152,4 +153,4 @@ print(total)
 print(rt)
 print(rt/total)
 print(time()-t)
-
+print(err)
