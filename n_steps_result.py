@@ -81,7 +81,7 @@ rootdir = '/Users/Qian/Desktop/wft'
 crd = open('hallway_cod.txt','r')
 crd_base = [x.strip() for x in crd.readlines()]
 for ref in crd_base:
-	name = ref
+	name = ref[0]
 file_open = open('data_filtered.txt','r')
 all_data = [x.strip() for x in file_open.readlines()]
 path = list_files(rootdir)
