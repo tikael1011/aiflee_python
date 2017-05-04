@@ -3,6 +3,10 @@ this script is designed to cal window algorithm
 therotically, by increating size of window, finally the accuracy will be 100%
 '''
 
+'''
+match a N-step sequence instead of individual points
+'''
+
 
 def sortlistdir(dirnamepath):
     files = glob(dirnamepath)
