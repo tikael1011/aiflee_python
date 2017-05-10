@@ -130,7 +130,7 @@ for txtfile in path:
 		if(v not in input_1):
 			del cnt[k]
 
-
+'''
 	while(steps > 1):
 		try:
 			input_2 = open((txtfile[:startindex+1]+str(int(txtfile[startindex+1:-4]) + steps-1))+'.txt')
@@ -175,7 +175,7 @@ for txtfile in path:
 			total = total + 1
 			steps = steps-1
 		except:
-			break
+'''			break
 
 print(total)
 print(rt)
