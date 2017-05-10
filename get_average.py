@@ -32,7 +32,7 @@ t = time()
  
 path = sortlistdir('/Users/Qian/Desktop/wifidata/V_Two/*.txt')
 
-method = 1 
+method = int(input("enter method"))
 
 j = 1
 
