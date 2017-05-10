@@ -67,7 +67,4 @@ result = [loc for loc, count in Counter(cad).most_common(5)]
 print("Based on the data you input, you are at {}".format(result))
 print("Time spent on computation: " + "{:.3f}".format(time()-t) + 's')
 
-####****
-# if __name__ == '__main__':
-# 	main()
-####****
+
