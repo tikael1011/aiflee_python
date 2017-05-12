@@ -7,6 +7,8 @@ from collections import Counter
 from time import time
 from glob import glob
 
+
+## this function is not used in this script ##
 def sortlistdir(dirnamepath):
     files = glob(dirnamepath)
     a = []
@@ -14,6 +16,7 @@ def sortlistdir(dirnamepath):
         a.append(dirnamepath[:-5] + str(item) + ".txt")
     return a
 
+##this function is not used in this script as well ##
 def list_files(dir):
     r = []
     for root, dirs, files in os.walk(dir):
@@ -22,6 +25,7 @@ def list_files(dir):
                 r.append(os.path.join(root, name))
     return r
 
+## this function is used to find the nth occurence of needle in the haystack ##
 def find_nth(haystack, needle, n):
     start = haystack.find(needle)
     while start >= 0 and n > 1:
