@@ -1,5 +1,12 @@
 #UTF-8 Jie
 
+'''
+This is about the basic footprint method to evaluate
+accuray, results includes several parameters.
+Will have details below
+'''
+
+
 import os
 import statistics
 import math
