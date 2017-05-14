@@ -1,3 +1,7 @@
+'''
+This file is used to filter data, of which apname is in the delete.txt"
+'''
+
 f = open("data_filtered.txt",'r')
 g = open("delete.txt",'r')
 h = open("copy.txt",'a')
