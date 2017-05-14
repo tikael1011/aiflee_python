@@ -1,6 +1,12 @@
 #utf -8
 #Jie Qian
- 
+'''
+This file is used to extract common apname
+along the hallway and is used for old algorithm(MATLAB one)
+No longer is use
+'''
+
+
 import sys
 import re
 import glob
