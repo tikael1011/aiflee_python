@@ -102,9 +102,10 @@ for txtfile in path:
 			jdata = base.split(',')
 			jname = jdata[0]
 			jvalue = float(jdata[1])
+			#Here 3 is the inner threshold for signal strength, same story as hallway point.
 			if (iname == jname and (jvalue - 3 <= ivalue and ivalue - 3 <= jvalue )):
 				cad.append(jdata[2])
-
+	# utlize counter function to give confident score
 	result = [loc for loc, count in Counter(cad).most_common(1)]
 	startindex = find_nth(txtfile, '/', 6)
 	point = int((' '.join(result)).split('.')[1])
@@ -121,17 +122,4 @@ print(rt)
 print(rt/total)
 print(time()-t)
 
-
-#776 total, 677rt, 0.8724226804123711 with threshold 3
-#665rt, 0.8569587628865979 with threshold 2
-#687rt, 0.8853092783505154 with threshold 4
-#623, with th1
-#514, with th0
-
-#inner thres from 0~3
-
-#file_open = open('data_filtered.txt','r')
-#input_open = open('demo.txt','r')
-
-
-#print(type(all_input))
+# For the whole testing result please check threshold_res.xlsx
