@@ -21,6 +21,12 @@ from time import time
 from glob import glob
 
 
+'''
+This function is used to output a 
+sorted path array, since I want to measure 
+point by point
+'''
+
 def sortlistdir(dirnamepath):
     files = glob(dirnamepath)
     a = []
@@ -28,12 +34,24 @@ def sortlistdir(dirnamepath):
     	a.append(dirnamepath[:-5] + str(item) + ".txt")
     return a
 
+'''
+This function is used to find the nth occurance of needle in
+the haystack, mainly use this to find hallwayname or point name
+'''
+
+
 def find_nth(haystack, needle, n):
     start = haystack.find(needle)
     while start >= 0 and n > 1:
         start = haystack.find(needle, start+len(needle))
         n -= 1
     return start
+
+
+'''
+This function is used to list all the txt files under on directory
+and its subdirectory. Kinda like traverse or walk
+'''
 
 def list_files(dir):
     r = []
@@ -48,7 +66,10 @@ t = time()
 
 rootdir = '/Users/Qian/Desktop/wifidata'
 
-
+# This is about the margin of hallwaypoint
+# say the ground truth is 5 and threshold is 2
+# then as long as the result is 3~7, it will be regarded
+# as correct.
 threshold = input("Input threshold: ")
 
 
