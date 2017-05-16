@@ -1,3 +1,10 @@
+'''
+This file about the evaluation.
+Use a slide a window, size can be 1,2...
+to measure given continous input, how accurate our
+algorithm can achieve
+'''
+
 import os
 import statistics
 import math
@@ -37,7 +44,7 @@ def get_hallname(string):
     return (string[find_nth(string,'/',5)+1:find_nth(string,'/',6)])
 
 
-
+#can use the walk function instead
 ref_h = []
 ref = []
 for dirpath, dirnames, filenames in os.walk("/Users/Qian/Desktop/AVG"):
@@ -60,6 +67,8 @@ steps_i = steps
 
 database = []
 
+# create a list for multi-input
+# input points must be continous, order does not matter.
 while(steps_i>0):
     database_path = input("Input path: ")
     database.append(database_path)
@@ -90,17 +99,6 @@ for item in range(ref_size-steps):
     
 new_ref = sorted(new_ref)
 
-# for item in new_ref:
-#     print(item)
-
-
-# rootdir = '/Users/Qian/Desktop/wft'
-# all_input = [x.strip() for x in input_open.readlines()]
-
-# file_open = open('data_filtered.txt','r')
-# all_data = [x.strip() for x in file_open.readlines()]
-
-# path = list_files(rootdir)
 
 cad = {}
 
@@ -108,8 +106,7 @@ for txtfile in database:
   input_open = open(txtfile,'r')
   all_input = [x.strip() for x in input_open.readlines()]
   
-
-  #print(all_input)
+#print(all_input)
   for element in all_input:
     if(element == ""): continue
     if(element == '****####****'): break
