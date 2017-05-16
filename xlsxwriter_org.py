@@ -1,3 +1,9 @@
+'''
+As the file name indicate
+used to write xls.
+Every time use just change the directory name
+'''
+
 import glob
 import xlsxwriter
 import re
@@ -17,7 +23,7 @@ row = 1
 col = 1
 point = 1
 
-
+## this function has been explained
 def sortlistdir(dirnamepath):
 	files = glob.glob(dirnamepath)	
 	a = []
@@ -41,7 +47,7 @@ for txtfile in path:
 			item = line.split()
 			if (len(item) != 4):
 				print (txtfile)
-				
+			# write row and column	
 			worksheet.write(row,0,point)
 			worksheet.write_string(row,col,item[0])
 			worksheet.write_number(row,col+1,int(item[1]))
