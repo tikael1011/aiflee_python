@@ -6,12 +6,20 @@ import glob
 import time
 
 '''
+This file is running on server
+Which is able to monitor new wifi data sent from individual app
+user and then output location(coordinate, calculated by ha;;way_cod.txt)to the 
+locotioon folder on the server
+'''
+
+
+
 class server_init(threading.Thread):
 	def __init__(self):
 		threading.Thread.__init__(self)
 	def run(self):
+		pass
 
-'''
 crd = open('/home/student/hallway_cod.txt','r')
 crd_base = [x.strip() for x in crd.readlines()]
 
@@ -47,6 +55,8 @@ while(1):
 			name = ref.split(',')
 			# print(result[0])
 			# print(name[0])
+			# we want to creat new file or each individual user and keep update(override) the result
+			# so we need to use try with mode 'w'/write and except with mode 'a'/append(creat new file) 
 			if (name[0] == result[0]):				
 				try:
 					o = open('/home/student/location/'+files,'w')
