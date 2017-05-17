@@ -1,6 +1,12 @@
 #utf -8
 #Jie Qian
- 
+
+'''
+This file is used to get average/mean strength for each ap based on method selection.
+And this is for old algorithm, the new algorithm does not require this.
+'''
+
+
 import sys
 import re
 import glob
