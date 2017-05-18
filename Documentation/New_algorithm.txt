@@ -1,0 +1,1 @@
+This one is called "foot print" method/algorithm, which uses the average strength data to build a digital map for the whole floor instead of using a function for each hallway.(check data_filtered.txt). While testing, simply use a threshold to check if the  testing data match ground truth.

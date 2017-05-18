@@ -8,7 +8,7 @@ import time
 '''
 This file is running on server
 Which is able to monitor new wifi data sent from individual app
-user and then output location(coordinate, calculated by ha;;way_cod.txt)to the 
+user and then output location(coordinate, calculated by hallway_cod.txt)to the 
 locotioon folder on the server
 '''
 

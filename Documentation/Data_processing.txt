@@ -1,0 +1,2 @@
+We collected wifi signal strength data for science building floor 3. There are 776 points total and the intervals between two continous points in the same hallway, no matter vertical or horizontal, are the same: 46cm.
+After data collection we use script to clean up data. Delete signal strengh less then -90 and access points appear less than five times for the sake of improving accuracy and computation time as well.
