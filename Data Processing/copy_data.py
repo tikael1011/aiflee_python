@@ -25,3 +25,4 @@ for item in f_r:
 	
 	if (cp not in d):
 		h.write(item)
+##testing
